@@ -5,7 +5,7 @@ const http = require('http');
 const os = require('os');
 const crypto = require('crypto');
 
-const VERSION = '1.1.7';
+const VERSION = '1.1.8';
 const PORT = 23456;
 // MSIX 编排（构建时由 build.js 内联 lib/msix-ops.js 及其依赖；dev 模式回退 require）
 const MSIX_OPS_B64 = '__CN_MSIX_OPS_B64__';
@@ -51,8 +51,6 @@ function compareVersion(a, b) {
 const PAYLOAD = {
   'boot.js': `BOOT_JS_PLACEHOLDER`,
   'i18n.js': `I18N_JS_PLACEHOLDER`,
-  'guard.js': `GUARD_JS_PLACEHOLDER`,
-  'panel.js': `PANEL_JS_PLACEHOLDER`
 };
 
 // ============== 纯 JS asar 解包/打包 ==============
@@ -494,7 +492,7 @@ const HTML_UI = `<!DOCTYPE html>
         </div>
       </div>
       <div class="button-group">
-        <button class="btn btn-primary" id="btn-i" onclick="doInstall()" title="注入汉化与反风控守护到 Claude Desktop（自动备份，可一键还原）">安装汉化</button>
+        <button class="btn btn-primary" id="btn-i" onclick="doInstall()" title="注入汉化到 Claude Desktop（自动备份，可一键还原）">安装汉化</button>
         <button class="btn btn-secondary" id="btn-u" onclick="doUninstall()" title="还原官方原包（自动校验，旧文件已备份）" disabled>卸载还原</button>
       </div>
       <div class="button-group" style="margin-top:0">
@@ -1166,7 +1164,7 @@ if (CLI_MODE === '--watcher-check') {
         process.exit(0);
       }
       try {
-        ops.installMsix(disc.msix, { i18n: PAYLOAD['i18n.js'], guard: PAYLOAD['guard.js'], panel: PAYLOAD['panel.js'] }, (m) => logW('[install] ' + m));
+        ops.installMsix(disc.msix, { i18n: PAYLOAD['i18n.js'] }, (m) => logW('[install] ' + m));
         logW('自动重注入完成，汉化已恢复');
       } catch (e) {
         logW('自动重注入失败: ' + (e.message || e));
@@ -1227,7 +1225,7 @@ if (CLI_MODE) {
     if (CLI_MODE === '--install-msix') {
       if (!disc.msix) { logF('未发现 MSIX 版 Claude Desktop', 'err'); flushLog(); process.exit(1); }
       if (DISCOVER.isRunningUnderInstall(disc.msix.installRoot)) { logF('检测到 Claude 正在运行，请先完全退出', 'err'); flushLog(); process.exit(1); }
-      ops.installMsix(disc.msix, { i18n: PAYLOAD['i18n.js'], guard: PAYLOAD['guard.js'], panel: PAYLOAD['panel.js'] }, logF);
+      ops.installMsix(disc.msix, { i18n: PAYLOAD['i18n.js'] }, logF);
     } else {
       ops.uninstallMsix(logF);
     }

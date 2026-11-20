@@ -3,7 +3,7 @@
  * Claude Desktop CN Installer (v0.1)
  *
  * 命令：
- *   node index.js install     注入汉化 + 反风控
+ *   node index.js install     注入汉化
  *   node index.js uninstall   还原官方 asar
  *   node index.js status      显示当前状态
  *
@@ -39,13 +39,6 @@ const BOOT_TAG = '<!-- CLAUDE-CN-BOOT -->';
 
 const DEFAULT_CONFIG = {
   version: '1',
-  guard: {
-    minInterval: 3000,
-    perMinute: 6,
-    perHour: 30,
-    perDay: 200,
-    bigPasteChars: 10000
-  },
   i18n: {
     enabled: true
   }
@@ -507,7 +500,6 @@ async function cmdInstallMsix() {
   }
   const payloadText = {
     i18n: fs.readFileSync(path.join(PAYLOAD_DIR, 'i18n.js'), 'utf8'),
-    guard: fs.readFileSync(path.join(PAYLOAD_DIR, 'guard.js'), 'utf8'),
     panel: fs.readFileSync(path.join(PAYLOAD_DIR, 'panel.js'), 'utf8')
   };
   try {

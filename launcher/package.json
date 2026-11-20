@@ -1,6 +1,6 @@
 {
   "name": "claude-desktop-cn-launcher",
-  "version": "1.1.7",
+  "version": "1.1.8",
   "description": "Claude Desktop CN 单文件启动器",
   "main": "launcher.js",
   "bin": "launcher.js",

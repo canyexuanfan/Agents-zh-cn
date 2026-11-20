@@ -1,7 +1,7 @@
 {
-  "version": "1.1.7",
+  "version": "1.1.8",
   "download_url": "https://inknexus.hnwen17.top/claude-desktop-cn/ClaudeDesktopCN.exe",
   "download_url_gz": "https://inknexus.hnwen17.top/claude-desktop-cn/ClaudeDesktopCN.exe.gz",
-  "sha256": "fcb43efd4aa05a6a4b8a298a3d415c55e64289dbc10eaf3fe153676a4292778b",
-  "changelog": "下载提速 2.7 倍：分发压缩包（服务器带宽有限），下载后自动解压+SHA 校验；新增自动守护：Claude 升级后自动重注入；下载位置自动识别；MSIX 注入支持"
+  "sha256": "578b9969eb235edee90d999a3cd8ed452ff95cf25c50a93a5787d9b0f58d1113",
+  "changelog": "精简版本：移除反风控/速率守护模块与浮窗（功能已内置化），保留汉化+自动守护（升级自动重注入）"
 }

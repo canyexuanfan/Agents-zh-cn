@@ -21,7 +21,7 @@ const { execSync, execFileSync } = require('child_process');
 const args = process.argv.slice(2);
 const noPkg = args.includes('--no-pkg');
 const nameArg = args.find((a) => !a.startsWith('--'));
-const VERSION = '1.1.7';
+const VERSION = '1.1.8';
 // 与历史版本统一：默认输出带版本号的存档名（ClaudeDesktopCN-v1.1.3.exe）；
 // 构建完成后额外产出固定分发名 ClaudeDesktopCN.exe（server/version.json 的 download_url 指向它）
 const OUTPUT_NAME = nameArg || 'ClaudeDesktopCN-v' + VERSION + '.exe';
@@ -37,8 +37,6 @@ const payloadDir = path.join(__dirname, '..', 'payload', 'src');
 const payloadFiles = {
   'boot.js': fs.readFileSync(path.join(payloadDir, 'boot.js'), 'utf8'),
   'i18n.js': fs.readFileSync(path.join(payloadDir, 'i18n.js'), 'utf8'),
-  'guard.js': fs.readFileSync(path.join(payloadDir, 'guard.js'), 'utf8'),
-  'panel.js': fs.readFileSync(path.join(payloadDir, 'panel.js'), 'utf8')
 };
 const iconB64 = fs.readFileSync(path.join(__dirname, 'assets', 'claude.ico')).toString('base64');
 const discoverSrc = fs.readFileSync(path.join(__dirname, '..', 'lib', 'discover.js'), 'utf8');
@@ -192,8 +190,8 @@ try {
     FileVersion: VERSION,
     OriginalFilename: OUTPUT_NAME
   });
-  vi.setFileVersion('1.1.7.0');
-  vi.setProductVersion('1.1.7.0');
+  vi.setFileVersion('1.1.8.0');
+  vi.setProductVersion('1.1.8.0');
   vi.outputToResourceEntries(res.entries);
 
   res.outputResource(exe);
