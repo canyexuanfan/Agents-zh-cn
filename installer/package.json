@@ -1,0 +1,21 @@
+{
+  "name": "claude-desktop-cn-installer",
+  "version": "1.1.7",
+  "private": true,
+  "description": "Installer for Claude Desktop CN pack",
+  "main": "index.js",
+  "bin": {
+    "claude-cn": "./index.js"
+  },
+  "scripts": {
+    "install-cn": "node index.js install",
+    "uninstall-cn": "node index.js uninstall",
+    "status": "node index.js status"
+  },
+  "dependencies": {
+    "@electron/asar": "^3.2.10"
+  },
+  "engines": {
+    "node": ">=16"
+  }
+}

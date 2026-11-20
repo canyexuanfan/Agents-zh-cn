@@ -1,0 +1,15 @@
+node_modules/
+*.log
+.DS_Store
+Thumbs.db
+*.tmp
+*.bak
+.vscode/
+.idea/
+launcher/build/
+launcher/node_modules/
+installer/node_modules/
+*.exe
+*.zip
+*.gz
+.workspace/
