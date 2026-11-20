@@ -33,11 +33,9 @@ node index.js install
 
 GUI 启动器见 `launcher/`（构建产物为单文件 ClaudeDesktopCN.exe）。
 
-## macOS 支持
+## 平台支持
 
-当前版本仅支持 Windows。macOS 用户推荐社区方案：
-[javaht/claude-desktop-zh-cn](https://github.com/javaht/claude-desktop-zh-cn)（支持 macOS/Windows/Linux）。
-
+当前版本仅支持 Windows。其他平台可参考本项目的词典资源（payload/src/i18n.js，32,000+ 条）自行适配。
 ## 自动守护说明
 
 Claude 自动升级会替换整个安装包（MSIX 由系统 AppXSvc 处理），注入内容随旧包消失——这是所有本地注入方案的共同边界。本工具通过计划任务（每小时+登录时）自动检测升级并重注入，升级后最迟 1 小时内自动恢复汉化，无常驻进程。
