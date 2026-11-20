@@ -1,6 +1,6 @@
-# Claude Desktop CN
+# Apps Zh-CN
 
-Windows 端 Claude Desktop 汉化与增强工具：界面中文化、反风控守护、升级后自动恢复汉化。
+Windows 端应用汉化与增强合集。首个项目：**Claude Desktop**（界面中文化、反风控守护、升级后自动恢复汉化）。后续计划覆盖 Cursor、Antigravity 等工具。
 
 > ⚠️ 本工具通过修改 Claude Desktop 本地安装文件实现汉化，仅供个人学习研究使用。请遵守 Anthropic 服务条款。不修改任何网络请求内容，不上传任何数据。
 
